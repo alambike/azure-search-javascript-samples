@@ -12,7 +12,7 @@ const queries = [
 
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
-    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME') {
+    if (config.get('serviceName') != '[SEARCH_SERVICE_NAME') {
         throw new Error("You have not set the values in your azure_search_config.json file.Change them to match your search service's values.");
     }
     return config;
